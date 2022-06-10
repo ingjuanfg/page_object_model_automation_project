@@ -8,10 +8,10 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-        features = "src/test/resources/features/prueba.feature",
+        features = "src/test/resources/features/test.feature",
         glue = "com.ingjuanfg.stepdefinitions",
         snippets = SnippetType.CAMELCASE
 )
-public class PruebRunner {
+public class TestRunner {
 }
 
