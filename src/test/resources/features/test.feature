@@ -1,8 +1,9 @@
 #language:es
 
-  Característica: Test E2E
+Antecedentes:
+Dado que el usuario se encuentra en la pagina
+Cuando el usuario ingrese sus credenciales
 
-    Escenario: Inicio de sesión
-      Dado que el usuario se encuentra en la pagina
-      Cuando el usuario ingrese sus credenciales
-      Entonces el usuario podra ver iniciar sesion
+Característica: Test E2E
+  Escenario: Inicio de sesión
+    Entonces el usuario podra ver iniciar sesion

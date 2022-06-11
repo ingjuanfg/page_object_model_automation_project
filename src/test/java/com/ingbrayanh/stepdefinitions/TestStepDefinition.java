@@ -1,6 +1,7 @@
 package com.ingbrayanh.stepdefinitions;
 
 import com.ingbrayanh.pages.LoginPage;
+import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -29,6 +30,5 @@ public class TestStepDefinition {
 
     @Entonces("el usuario podra ver iniciar sesion")
     public void elUsuarioPodraVerIniciarSesion() {
-
     }
 }
