@@ -32,6 +32,8 @@ dependencies {
     implementation "net.serenity-bdd:serenity-cucumber4:$rootProject.ext.serenityCucumberVersion"
     implementation "net.serenity-bdd:serenity-screenplay-webdriver:$rootProject.ext.serenityVersion"
 
+    //testImplementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.2.2'
+
     testImplementation 'junit:junit:4.12'
     testImplementation 'org.assertj:assertj-core:3.9.0'
     testImplementation 'org.slf4j:slf4j-simple:1.7.7'
