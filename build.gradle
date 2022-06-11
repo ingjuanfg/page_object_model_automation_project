@@ -42,4 +42,12 @@ test {
     useJUnitPlatform()
 }
 
+compileJava.options.encoding = "UTF-8"
+compileTestJava.options.encoding = "UTF-8"
+
 gradle.startParameter.continueOnFailure = true
+
+tasks.withType(Test) {
+    systemProperties = System.properties as Map<String, ?>
+    maxParallelForks = Runtime.runtime.availableProcessors()
+}
