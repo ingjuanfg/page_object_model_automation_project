@@ -8,4 +8,4 @@
     Escenario: Login exitoso
       Dado que el usuario se encuentra en la pagina
       Cuando el usuario ingrese sus credenciales
-      Entonces el usuario deberia ingresar al ecomerce
+      Entonces el usuario deberia ingresar al ecommerce
