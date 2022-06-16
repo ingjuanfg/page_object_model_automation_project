@@ -8,4 +8,8 @@
     Escenario: Login exitoso
       Dado que el usuario se encuentra en la pagina
       Cuando el usuario ingrese sus credenciales
+<<<<<<< HEAD
       Entonces el usuario podra ver listado de productos
+=======
+      Entonces el usuario deberia ingresar al ecommerce
+>>>>>>> main

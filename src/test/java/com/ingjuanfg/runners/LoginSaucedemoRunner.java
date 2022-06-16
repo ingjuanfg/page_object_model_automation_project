@@ -12,6 +12,6 @@ import org.junit.runner.RunWith;
         glue = "com.ingjuanfg.stepdefinitions",
         snippets = SnippetType.CAMELCASE
 )
-public class TestRunner {
+public class LoginSaucedemoRunner {
 }
 
