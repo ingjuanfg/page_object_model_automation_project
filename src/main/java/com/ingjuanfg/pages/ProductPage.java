@@ -4,7 +4,10 @@ import net.serenitybdd.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-public class CrearCompraPage extends PageObject {
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
+public class ProductPage extends PageObject {
     WebDriver driver;
 
     By botonAdicionarProducto = By.xpath("//button[contains(@id, 'bolt-t-shirt')]");
@@ -12,7 +15,9 @@ public class CrearCompraPage extends PageObject {
 
     By botonIniciarCompra = By.xpath("//div[@class='cart_footer'] //following-sibling::button");
 
-    public CrearCompraPage(WebDriver driver) {
+    By tituloProducto = By.xpath("//span[@class='title']");
+
+    public ProductPage(WebDriver driver) {
         this.driver = driver;
     }
 
@@ -26,5 +31,10 @@ public class CrearCompraPage extends PageObject {
 
     public void iniciarCompra(){
         driver.findElement(botonIniciarCompra).click();
+    }
+
+    public void loginExitoso(){
+        //Junit:  assertThat(driver.findElement(tituloProducto).getText(), is("PRODUCTS"));
+        assertThat("El ltexto del título está vacío", !driver.findElement(tituloProducto).getText().isEmpty());
     }
 }
