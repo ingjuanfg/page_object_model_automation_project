@@ -16,7 +16,9 @@ public class LoginSoucedemoStepDefinition {
 
     @Page
     private LoginPage loginPage;
+    @Page
     private FormPage  formPage;
+    @Page
     private ProductsPage productsPage;
 
     @Dado("que el usuario se encuentra en la pagina")
@@ -36,8 +38,7 @@ public class LoginSoucedemoStepDefinition {
 
     @Entonces("el usuario deberia entrar el ecomerce")
     public void el_usuario_deberia_entrar_el_ecomerce() {
-        assert(productsPage.encontrarTituloProducto());
-
+        productsPage.loginExitoso();
     }
 
     @Cuando("el usuario agrega el producto al carrito")
@@ -54,7 +55,6 @@ public class LoginSoucedemoStepDefinition {
         formPage.escribirZipCode("542332");
         formPage.clickContinue();
         formPage.clickFinish();
-        sleep(50000);
     }
 
     @Entonces("el deberia realizar una compra exitosa")

@@ -6,6 +6,8 @@ import org.openqa.selenium.WebDriver;
 
 import java.sql.Time;
 
+import static org.hamcrest.MatcherAssert.assertThat;
+
 @DefaultUrl("https://www.saucedemo.com/")
 public class ProductsPage extends PageObject {
 
@@ -35,6 +37,11 @@ public class ProductsPage extends PageObject {
     public boolean encontrarTituloProducto(){
         boolean resultado = (driver.findElement(ProductsTitle).isDisplayed())?true:false;
         return  resultado;
+    }
+
+    public void loginExitoso(){
+        //assertThat(driver.findElement(ProductsTitle).getText(), is("Products"));
+        assertThat("El Titulo no se encuentra", driver.findElement(ProductsTitle).isDisplayed());
     }
 }
 
