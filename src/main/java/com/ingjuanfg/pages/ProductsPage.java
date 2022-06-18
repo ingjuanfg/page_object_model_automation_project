@@ -1,20 +1,27 @@
 package com.ingjuanfg.pages;
 
+import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-
-import static org.hamcrest.MatcherAssert.assertThat;
+import net.serenitybdd.core.pages.WebElementFacade;
 public class ProductsPage extends PageObject {
-    WebDriver driver;
 
-    By tituloProductos = By.xpath("//span[contains(.,'Products')]");
+    @FindBy(xpath = "//div[contains(.,'Sauce Labs Backpack') and @class='inventory_item_label']/following-sibling::div//button")
+    WebElementFacade productoBolso;
 
-    public ProductsPage(WebDriver driver) {
-        this.driver = driver;
+    @FindBy(className = "shopping_cart_link")
+    WebElementFacade btnCarrito;
+
+    @FindBy(id="checkout")
+    WebElementFacade btnCheckout;
+
+    public void agregaProducto(){
+        productoBolso.click();
+    }
+    public void abrirCarrito(){
+        btnCarrito.click();
     }
 
-    public void loginExitoso(){
-        assertThat("El texto del titulo es vacio", driver.findElement(tituloProductos).getText().isEmpty());
+    public void hacerCheckout(){
+        btnCheckout.click();
     }
 }

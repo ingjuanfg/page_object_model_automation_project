@@ -18,7 +18,7 @@ public class LoginSaucedemoStepDefinition {
 
     @Cuando("el usuario ingrese sus credenciales")
     public void elUsuarioIngreseSusCredenciales() {
-        loginStep.realizarAutenticacion("standard_user", "secret_sauce");
+        //loginStep.realizarAutenticacion("standard_user", "secret_sauce");
     }
 
     @Entonces("el usuario deberia ingresar al ecommerce")
