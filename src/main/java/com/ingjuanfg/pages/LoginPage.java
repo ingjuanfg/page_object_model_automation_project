@@ -9,7 +9,6 @@ import org.openqa.selenium.WebDriver;
 @DefaultUrl("https://www.saucedemo.com/")
 public class LoginPage extends PageObject {
     WebDriver driver;
-
     By inputUsuario = By.id("user-name");
     By inputPassword = By.id("password");
     By buttonLogin = By.id("login-button");
