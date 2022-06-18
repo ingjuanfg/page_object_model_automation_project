@@ -1,29 +1,28 @@
 package com.ingjuanfg.stepdefinitions;
 
-import com.ingjuanfg.pages.LoginPage;
+import com.ingjuanfg.steps.LoginStep;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
-import org.fluentlenium.core.annotation.Page;
+import net.thucydides.core.annotations.Steps;
 
 public class LoginSaucedemoStepDefinition {
 
-    @Page
-    private LoginPage loginPage;
+    @Steps
+    LoginStep loginStep;
 
     @Dado("que el usuario se encuentra en la pagina")
     public void queElUsuarioSeEncuentraEnLaPagina() {
-        loginPage.open();
+        loginStep.abrirNavegador();
     }
 
     @Cuando("el usuario ingrese sus credenciales")
     public void elUsuarioIngreseSusCredenciales() {
-        loginPage.escribirUsuario("standard_user");
-        loginPage.escribirPassword("secret_sauce");
-        loginPage.clickLogin();
+        loginStep.realizarAutenticacion("standard_user", "secret_sauce");
     }
 
     @Entonces("el usuario deberia ingresar al ecommerce")
     public void elUsuarioDeberiaIngresarAlEcommerce() {
+       // productsPage.loginExitoso();
     }
 }

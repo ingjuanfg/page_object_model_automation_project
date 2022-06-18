@@ -1,31 +1,32 @@
 package com.ingjuanfg.pages;
 
 
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
 @DefaultUrl("https://www.saucedemo.com/")
 public class LoginPage extends PageObject {
-    WebDriver driver;
-    By inputUsuario = By.id("user-name");
-    By inputPassword = By.id("password");
-    By buttonLogin = By.id("login-button");
 
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
-    public void escribirUsuario(String usuario){
-        driver.findElement(inputUsuario).sendKeys(usuario);
-    }
+    @FindBy(id="user-name")
+    WebElementFacade inputUser;
 
-    public void escribirPassword(String clave){
-        driver.findElement(inputPassword).sendKeys(clave);
+    @FindBy(id="password")
+    WebElementFacade inputPass;
+
+    @FindBy(id="login-button")
+    WebElementFacade btnLogin;
+
+    public void digitarUsuario(String usuario){
+        inputUser.type(usuario);
     }
 
-    public void clickLogin(){
-        driver.findElement(buttonLogin).click();
+    public void digitarClave(String clave){
+        inputPass.sendKeys(clave);
     }
 
+    public void clickAutententicacion(){
+        btnLogin.click();
+    }
 }
