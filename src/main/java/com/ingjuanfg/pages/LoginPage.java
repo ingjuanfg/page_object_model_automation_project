@@ -6,11 +6,7 @@ import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
-<<<<<<< HEAD
 @DefaultUrl("https://www.saucedemo.com")
-=======
-@DefaultUrl("https://www.saucedemo.com/")
->>>>>>> origin
 public class LoginPage extends PageObject {
     WebDriver driver;
 
@@ -18,18 +14,12 @@ public class LoginPage extends PageObject {
     By inputPassword = By.id("password");
     By buttonLogin = By.id("login-button");
 
-<<<<<<< HEAD
 
 
     public LoginPage(WebDriver driver) {
         this.driver = driver;
     }
 
-=======
-    public LoginPage(WebDriver driver) {
-        this.driver = driver;
-    }
->>>>>>> origin
     public void escribirUsuario(String usuario){
         driver.findElement(inputUsuario).sendKeys(usuario);
     }
@@ -41,8 +31,4 @@ public class LoginPage extends PageObject {
     public void clickLogin(){
         driver.findElement(buttonLogin).click();
     }
-<<<<<<< HEAD
-=======
-
->>>>>>> origin
 }
