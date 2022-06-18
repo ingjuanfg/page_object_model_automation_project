@@ -23,6 +23,6 @@ public class LoginSaucedemoStepDefinition {
 
     @Entonces("el usuario deberia ingresar al ecommerce")
     public void elUsuarioDeberiaIngresarAlEcommerce() {
-       // productsPage.loginExitoso();
+        //productsPage.loginExitoso();
     }
 }

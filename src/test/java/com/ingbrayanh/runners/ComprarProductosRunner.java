@@ -8,15 +8,11 @@ import org.junit.runner.RunWith;
 @RunWith(CucumberWithSerenity.class)
 @CucumberOptions(
         plugin = {"pretty"},
-<<<<<<<< HEAD:src/test/java/com/ingbrayanh/runners/TestRunner.java
-        features = "src/test/resources/features/test.feature",
-        glue = "com.ingbrayanh.stepdefinitions",
-========
         features = "src/test/resources/features/comprar_productos.feature",
-        glue = "com.ingjuanfg.stepdefinitions",
->>>>>>>> page_factory:src/test/java/com/ingbrayanh/runners/ComprarProductosRunner.java
+        glue = "com.ingbrayanh.stepdefinitions",
         snippets = SnippetType.CAMELCASE
 )
+
 public class ComprarProductosRunner {
 }
 
