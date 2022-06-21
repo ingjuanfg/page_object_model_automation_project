@@ -4,6 +4,8 @@ import com.ingjuanfg.pages.LoginPage;
 import net.thucydides.core.annotations.Step;
 import org.fluentlenium.core.annotation.Page;
 
+import java.util.Map;
+
 public class LoginStep {
     @Page
     private LoginPage loginPage;
@@ -14,9 +16,9 @@ public class LoginStep {
     }
 
     @Step
-    public void authentication(String user, String password){
-        loginPage.escribirUsuario(user);
-        loginPage.escribirPassword(password);
+    public void authentication(Map<String, String> credenciales){
+        loginPage.escribirUsuario(credenciales.get("usuario"));
+        loginPage.escribirPassword(credenciales.get("clave"));
         loginPage.clickLogin();
     }
 }

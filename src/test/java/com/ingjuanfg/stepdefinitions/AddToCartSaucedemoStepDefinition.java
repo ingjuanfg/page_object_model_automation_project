@@ -6,6 +6,10 @@ import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
 import net.thucydides.core.annotations.Steps;
+
+import java.util.List;
+import java.util.Map;
+
 import static org.hamcrest.MatcherAssert.assertThat;
 import static org.hamcrest.Matchers.is;
 
@@ -31,9 +35,9 @@ public class AddToCartSaucedemoStepDefinition {
 
 
     @Dado("que el usuario ya esta logueado")
-    public void queElUsuarioYaEstaLogueado() {
+    public void queElUsuarioYaEstaLogueado(Map<String, String> credenciales) {
         loginStep.openNavigator();
-        loginStep.authentication("standard_user", "secret_sauce");
+        loginStep.authentication(credenciales);
     }
 
     @Cuando("el usuario agrega producto al carrito")
@@ -43,9 +47,9 @@ public class AddToCartSaucedemoStepDefinition {
     }
 
     @Cuando("realiza el checkout de la compra")
-    public void realizaElCheckoutDeLaCompra() throws Exception{
+    public void realizaElCheckoutDeLaCompra(List<Map<String, String>> datosCheckOut) throws Exception{
         cartCheckoutStep.clickBotonCheckout();
-        checkoutStep.completarFormularioCheckout();
+        checkoutStep.completarFormularioCheckout(datosCheckOut);
         //Thread.sleep(10000);
     }
 

@@ -8,10 +8,18 @@ Característica: Agregar al carrito
 	Antecedentes:
 		Dado que el usuario se encuentra en la pagina
 		Cuando el usuario ingrese sus credenciales
+			| usuario  | standard_user|
+			| clave |secret_sauce|
 
-	Escenario: realizar la compra en saucedemo
+	Esquema del escenario: realizar la compra en saucedemo
 		Cuando el usuario agrega producto al carrito
 		Y realiza el checkout de la compra
+			| nombre   | apellido   | postal         |
+			| <nombre> | <apellido> | <codigoPostal> |
 		Entonces el usuario realiza una compra exitosa
+		Ejemplos:
+			| nombre | apellido | codigoPostal |
+			| cesar  | castano  | 20007        |
+			| Maria  | Lopez  | 67440007        |
 
 
