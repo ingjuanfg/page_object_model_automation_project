@@ -1,32 +1,31 @@
 package com.ingjuanfg.pages;
 
+import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.FindBy;
 
 @DefaultUrl("https://www.saucedemo.com/checkout-step-one.html")
 public class CheckoutStepOnePage extends PageObject {
 
-    WebDriver webDriver;
 
-    By inputFirstName = By.id("first-name");
-    By inputLastName = By.id("last-name");
-    By inputPostalCode = By.id("postal-code");
-    By buttonContinue = By.id("continue");
+    @FindBy(id="first-name")
+    WebElementFacade inputFirstName;
+    @FindBy(id="last-name")
+    WebElementFacade inputLastName;
+    @FindBy(id="postal-code")
+    WebElementFacade inputPostalCode;
+    @FindBy(id="continue")
+    WebElementFacade buttonContinue;
 
-
-
-    public CheckoutStepOnePage(WebDriver driver) {
-        this.webDriver = driver;
-    }
 
     public void fillFormCheckout(String firstName, String lastName, String postalCode){
-        webDriver.findElement(inputFirstName).sendKeys(firstName);
-        webDriver.findElement(inputLastName).sendKeys(lastName);
-        webDriver.findElement(inputPostalCode).sendKeys(postalCode);
-        webDriver.findElement(buttonContinue).click();
-
+        inputFirstName.type(firstName);
+        inputLastName.type(lastName);
+        inputPostalCode.sendKeys(postalCode);
+        buttonContinue.click();
     }
 
 }

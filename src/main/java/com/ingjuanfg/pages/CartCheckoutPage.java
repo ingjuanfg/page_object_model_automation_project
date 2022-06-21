@@ -7,13 +7,13 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.FindBy;
 
+public class CartCheckoutPage extends PageObject {
 
-public class CheckoutStepTwoPage extends PageObject {
+    @FindBy(id="checkout")
+    WebElementFacade buttonCheckout;
 
-    @FindBy(id="finish")
-    WebElementFacade buttonFinish;
 
-    public void finishBuy(){
-        buttonFinish.click();
+    public void clickCheckout(){
+        buttonCheckout.click();
     }
 }

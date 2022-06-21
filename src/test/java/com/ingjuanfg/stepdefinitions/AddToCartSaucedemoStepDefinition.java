@@ -1,60 +1,56 @@
 package com.ingjuanfg.stepdefinitions;
 
-import com.ingjuanfg.pages.*;
+
+import com.ingjuanfg.steps.*;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
-import org.fluentlenium.core.annotation.Page;
+import net.thucydides.core.annotations.Steps;
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
 
 public class AddToCartSaucedemoStepDefinition {
-    @Page
-    private AddToCartPage addToCartPage;
 
-    @Page
-    private LoginPage loginPage;
 
-    @Page
-    private CartCheckout cartCheckout;
 
-    @Page
-    private CheckoutStepOnePage checkoutStepOnePage;
+    @Steps
+    LoginStep loginStep;
 
-    @Page
-    private CheckoutStepTwoPage checkoutStepTwoPage;
+    @Steps
+    AddToCartStep addToCartStep;
+
+    @Steps
+    CartCheckoutStep cartCheckoutStep;
+
+    @Steps
+    CheckoutStep checkoutStep;
+
+    @Steps
+    CheckoutCompleteStep checkoutCompleteStep;
+
+
 
     @Dado("que el usuario ya esta logueado")
     public void queElUsuarioYaEstaLogueado() {
-        loginPage.open();
-        loginPage.escribirUsuario("standard_user");
-        loginPage.escribirPassword("secret_sauce");
-        loginPage.clickLogin();
+        loginStep.openNavigator();
+        loginStep.authentication("standard_user", "secret_sauce");
     }
 
     @Cuando("el usuario agrega producto al carrito")
     public void elUsuarioAgregaProductoAlCarrito() {
-        addToCartPage.clickAddToCart();
-        addToCartPage.verifyProductAdd();
-
-
+        addToCartStep.agregarProductoCarrito();
+        addToCartStep.verificarProductoAgregado();
     }
 
     @Cuando("realiza el checkout de la compra")
     public void realizaElCheckoutDeLaCompra() throws Exception{
-        cartCheckout.clickCheckout();
-
-        checkoutStepOnePage.fillFormCheckout("Maria", "Lopez", "050026");
-
-        checkoutStepTwoPage.finishBuy();
-
-        Thread.sleep(10000);
-
-
+        cartCheckoutStep.clickBotonCheckout();
+        checkoutStep.completarFormularioCheckout();
+        //Thread.sleep(10000);
     }
 
     @Entonces("el usuario realiza una compra exitosa")
     public void elUsuarioRealizaUnaCompraExitosa()  {
-
-
+        assertThat(true, is(checkoutCompleteStep.obtenerMensajeCheckout()));
     }
-
 }

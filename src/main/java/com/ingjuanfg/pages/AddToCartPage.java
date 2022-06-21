@@ -24,6 +24,6 @@ public class AddToCartPage extends PageObject {
     public void verifyProductAdd(){ driver.findElement(verifyProductAddCart).click();
 
     }
-
+// xpath(//div[contains(.,'Sauce Labs Backpack') and @class='inventory_item_label']/following-sibling::div//button)
 
 }

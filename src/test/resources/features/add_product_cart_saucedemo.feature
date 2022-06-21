@@ -14,3 +14,4 @@ Característica: Agregar al carrito
 		Y realiza el checkout de la compra
 		Entonces el usuario realiza una compra exitosa
 
+
