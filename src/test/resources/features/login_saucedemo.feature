@@ -6,6 +6,6 @@
     Para realizar la compra de estos
 
     Escenario: Login exitoso
-      Dado que el usuario se encuentra en la pagina
+      Dado que Juan se encuentra en la pagina
       Cuando el usuario ingrese sus credenciales
       Entonces el usuario deberia ingresar al ecommerce

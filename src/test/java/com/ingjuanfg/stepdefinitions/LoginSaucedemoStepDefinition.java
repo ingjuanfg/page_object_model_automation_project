@@ -1,24 +1,31 @@
 package com.ingjuanfg.stepdefinitions;
 
-import com.ingjuanfg.steps.LoginStep;
+import com.ingjuanfg.tasks.Realizar;
+import cucumber.api.java.Before;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
-import net.thucydides.core.annotations.Steps;
+import net.serenitybdd.screenplay.actions.Open;
+import net.serenitybdd.screenplay.actors.OnStage;
+import net.serenitybdd.screenplay.actors.OnlineCast;
+
+import static net.serenitybdd.screenplay.actors.OnStage.theActorCalled;
+import static net.serenitybdd.screenplay.actors.OnStage.theActorInTheSpotlight;
 
 public class LoginSaucedemoStepDefinition {
+    @Before
+    public void prepareStage() {
+        OnStage.setTheStage(new OnlineCast());
+    }
 
-    @Steps
-    LoginStep loginStep;
-
-    @Dado("que el usuario se encuentra en la pagina")
-    public void queElUsuarioSeEncuentraEnLaPagina() {
-        loginStep.abrirNavegador();
+    @Dado("que {word} se encuentra en la pagina")
+    public void queElUsuarioSeEncuentraEnLaPagina(String nombre) {
+        theActorCalled(nombre).wasAbleTo(Open.url("https://www.saucedemo.com/"));
     }
 
     @Cuando("el usuario ingrese sus credenciales")
     public void elUsuarioIngreseSusCredenciales() {
-        loginStep.loginInSauceLabs("standard_user", "secret_sauce");
+        theActorInTheSpotlight().attemptsTo(Realizar.AutenticacionEnSaucelabs());
     }
 
     @Entonces("el usuario deberia ingresar al ecommerce")
