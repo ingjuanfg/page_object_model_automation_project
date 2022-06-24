@@ -1,42 +1,51 @@
 package com.ingjuanfg.pages;
-import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.pages.PageObject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-@DefaultUrl("https://www.saucedemo.com/")
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
+import org.hamcrest.MatcherAssert;
+
 public class FormPage extends PageObject {
 
-    WebDriver driver ;
+    @FindBy(id="first-name")
+    WebElementFacade campoNombre;
 
-    By inputFirstName = By.id("first-name");
-    By inputLastName = By.id("last-name");
-    By inputZipCode = By.id("postal-code");
-    By buttonContinue= By.xpath("//div[@class='checkout_buttons']/child::input");
-    By buttonfinish= By.xpath("//button[@data-test='finish' and @id='finish']");
-    By imgFinOrder= By.xpath("//div[@class='complete-text']/following-sibling::img");
+    @FindBy(id="last-name")
+    WebElementFacade campoApellido;
 
-    public FormPage(WebDriver driver) {
-        this.driver = driver;
+    @FindBy(id="postal-code")
+    WebElementFacade campoCodigoPostal;
+
+    @FindBy(id="continue")
+    WebElementFacade btnContinuar;
+
+    @FindBy(id="finish")
+    WebElementFacade btnFinalizar;
+
+    @FindBy(xpath = "//div[@class='complete-text']/following-sibling::img")
+    WebElementFacade imgEndOrder;
+
+    public void ingresarNombre(String nombre){
+        campoNombre.type(nombre);
     }
 
-    public void escribirFirstname(String firstname){
-        driver.findElement(inputFirstName).sendKeys(firstname);
+    public void ingresarApellido(String apellido){
+        campoApellido.type(apellido);
     }
-    public void escribirLastname(String lastname){
-        driver.findElement(inputLastName).sendKeys(lastname);
+
+    public void ingresarCodigoPostal(String postal){
+        campoCodigoPostal.type(postal);
     }
-    public void escribirZipCode(String zipcode){
-        driver.findElement(inputZipCode).sendKeys(zipcode);
+
+    public void continuarCheckout(){
+        btnContinuar.click();
     }
-    public void clickContinue(){
-        driver.findElement(buttonContinue).click();
+
+    public void finalizarCheckout(){
+        btnFinalizar.click();
     }
-    public void clickFinish(){
-        driver.findElement(buttonfinish).click();
-    }
-    public boolean encontrarImagenCaballo(){
-        boolean resultado = (driver.findElement(imgFinOrder).isDisplayed())?true:false;
-        return  resultado;
+
+    public void validarFinCheckout(){
+        imgEndOrder.isDisplayed();
     }
 }

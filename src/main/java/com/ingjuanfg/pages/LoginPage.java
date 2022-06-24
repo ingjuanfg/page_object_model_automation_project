@@ -1,15 +1,14 @@
+
 package com.ingjuanfg.pages;
+
+
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
 import net.thucydides.core.annotations.DefaultUrl;
 import net.thucydides.core.pages.PageObject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 @DefaultUrl("https://www.saucedemo.com/")
 public class LoginPage extends PageObject {
-
 
     @FindBy(id="user-name")
     WebElementFacade inputUser;
@@ -20,14 +19,15 @@ public class LoginPage extends PageObject {
     @FindBy(id="login-button")
     WebElementFacade btnLogin;
 
-    public  void digitarUsuario(String usuario){
+    public void digitarUsuario(String usuario){
         inputUser.type(usuario);
     }
-    public  void digitarPassword(String password){
-        inputPass.type(password);
-    }
-    public void clickAutenticacion(){
-        btnLogin.click();
+
+    public void digitarClave(String clave){
+        inputPass.sendKeys(clave);
     }
 
+    public void clickAutententicacion(){
+        btnLogin.click();
+    }
 }

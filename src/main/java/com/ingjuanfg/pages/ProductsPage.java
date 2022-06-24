@@ -1,47 +1,27 @@
 package com.ingjuanfg.pages;
-import net.thucydides.core.annotations.DefaultUrl;
-import net.thucydides.core.pages.PageObject;
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 
-import java.sql.Time;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-
-@DefaultUrl("https://www.saucedemo.com/")
+import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
+import net.serenitybdd.core.pages.WebElementFacade;
 public class ProductsPage extends PageObject {
 
-    WebDriver driver ;
+    @FindBy(xpath = "//div[contains(.,'Sauce Labs Backpack') and @class='inventory_item_label']/following-sibling::div//button")
+    WebElementFacade productoBolso;
 
-    By buttonAddBackpack = By.xpath("//button[@name='add-to-cart-sauce-labs-backpack'  and contains(.,'Add to cart')]");
-    By buttonCart= By.xpath("//div[@class='shopping_cart_container']/child::a");
-    By buttonCheckout= By.xpath("//button[@name='checkout'  and contains(.,'Checkout')]");
-    By ProductsTitle= By.xpath("//div[@class='header_secondary_container']//child::span");
+    @FindBy(className = "shopping_cart_link")
+    WebElementFacade btnCarrito;
 
-    public ProductsPage(WebDriver driver) {
-        this.driver = driver;
+    @FindBy(id="checkout")
+    WebElementFacade btnCheckout;
+
+    public void agregaProducto(){
+        productoBolso.click();
+    }
+    public void abrirCarrito(){
+        btnCarrito.click();
     }
 
-    public void clickAddCartBackPack(){
-        driver.findElement(buttonAddBackpack).click();
-    }
-
-    public void clickCart(){
-        driver.findElement(buttonCart).click();
-    }
-
-    public void clickCheckout(){
-        driver.findElement(buttonCheckout).click();
-    }
-
-    public boolean encontrarTituloProducto(){
-        boolean resultado = (driver.findElement(ProductsTitle).isDisplayed())?true:false;
-        return  resultado;
-    }
-
-    public void loginExitoso(){
-        //assertThat(driver.findElement(ProductsTitle).getText(), is("Products"));
-        assertThat("El Titulo no se encuentra", driver.findElement(ProductsTitle).isDisplayed());
+    public void hacerCheckout(){
+        btnCheckout.click();
     }
 }
-
