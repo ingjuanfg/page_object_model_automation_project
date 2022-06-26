@@ -1,6 +1,7 @@
 package com.ingjuanfg.stepdefinitions;
 
 import com.ingjuanfg.pages.LoginPage;
+import com.ingjuanfg.pages.ProductsPage;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -10,6 +11,9 @@ public class LoginSaucedemoStepDefinition {
 
     @Page
     private LoginPage loginPage;
+
+    @Page
+    private ProductsPage productsPage;
 
     @Dado("que el usuario se encuentra en la pagina")
     public void queElUsuarioSeEncuentraEnLaPagina() {
@@ -25,5 +29,6 @@ public class LoginSaucedemoStepDefinition {
 
     @Entonces("el usuario deberia ingresar al ecommerce")
     public void elUsuarioDeberiaIngresarAlEcommerce() {
+        productsPage.validarLoginExitoso();
     }
 }
