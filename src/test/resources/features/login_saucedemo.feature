@@ -1,9 +1,9 @@
 #language:es
 
-  Característica: Compra de productos
+  Característica: Login En Saucedemo
     Yo como usuario de Saucedemo
-    Quiero agregar productos al carrito
-    Para realizar la compra de estos
+    Quiero realizar la autenticación
+    Para ver los productos en la lista
 
     Escenario: Login exitoso
       Dado que el usuario se encuentra en la pagina
