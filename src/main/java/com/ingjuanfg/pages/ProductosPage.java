@@ -3,7 +3,7 @@ package com.ingjuanfg.pages;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-public class ProductsPage extends PageObject {
+public class ProductosPage extends PageObject {
 
     @FindBy(xpath = "//div[contains(.,'Sauce Labs Backpack') and @class='inventory_item_label']/following-sibling::div//button")
     WebElementFacade productoBolso;

@@ -1,8 +1,9 @@
 package com.ingjuanfg.stepdefinitions;
 
 import com.ingjuanfg.steps.CheckoutStep;
+import com.ingjuanfg.steps.ComprasStep;
 import com.ingjuanfg.steps.LoginStep;
-import com.ingjuanfg.steps.ProductsStep;
+import com.ingjuanfg.steps.ProductosStep;
 import cucumber.api.java.es.Cuando;
 import cucumber.api.java.es.Dado;
 import cucumber.api.java.es.Entonces;
@@ -18,10 +19,13 @@ public class ComprarProductosStepDefinition {
     LoginStep loginStep;
 
     @Steps
-    ProductsStep productsStep;
+    ProductosStep productosStep;
 
     @Steps
     CheckoutStep checkoutStep;
+
+    @Steps
+    ComprasStep comprasStep;
 
     @Dado("que el usuario se autentica en la pagina de Saucelabs")
     public void queElUsuarioSeAutenticaEnLaPaginaDeSaucelabs(Map<String, String> credenciales) {
@@ -31,12 +35,12 @@ public class ComprarProductosStepDefinition {
 
     @Cuando("el usuario agrega al carrito el producto Sauce Labs Backpack")
     public void elUsuarioAgregaAlCarritoElProductoSauceLabsBackpack() {
-        productsStep.agregarProductoCarrito();
+        productosStep.agregarProductoCarrito();
     }
 
     @Y("realiza el checkout")
     public void realizaElCheckout(List<Map<String,String>> datosUsuario) {
-        productsStep.realizarCheckout();
+        productosStep.realizarCheckout();
         checkoutStep.diligenciarCheckout(datosUsuario);
     }
 
@@ -47,5 +51,6 @@ public class ComprarProductosStepDefinition {
 
     @Entonces("el usuario deberia de ver que su compra es exitosa")
     public void elUsuarioDeberiaDeVerQueSuCompraEsExitosa() {
+        comprasStep.compraRealizadaConExito();
     }
 }

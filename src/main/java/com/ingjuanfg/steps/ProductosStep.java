@@ -1,21 +1,21 @@
 package com.ingjuanfg.steps;
 
-import com.ingjuanfg.pages.ProductsPage;
+import com.ingjuanfg.pages.ProductosPage;
 import net.thucydides.core.annotations.Step;
 import org.fluentlenium.core.annotation.Page;
 
-public class ProductsStep {
+public class ProductosStep {
     @Page
-    private ProductsPage productsPage;
+    private ProductosPage productosPage;
 
     @Step
     public void agregarProductoCarrito(){
-        productsPage.agregaProducto();
+        productosPage.agregaProducto();
     }
 
     @Step
     public void realizarCheckout(){
-        productsPage.abrirCarrito();
-        productsPage.hacerCheckout();
+        productosPage.abrirCarrito();
+        productosPage.hacerCheckout();
     }
 }
